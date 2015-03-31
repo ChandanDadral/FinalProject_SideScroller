@@ -1,4 +1,5 @@
-﻿
+﻿/// <reference path="objects/bee.ts" />
+
 /**
 File: game.ts
 Author: Karan Sharma
@@ -9,75 +10,6 @@ to selct the player of the game. Once user select his player then game will star
 it displays the score board at the top of the screen and also displays the message 
 When player wins or lost.
 Last Modified : March 19, 2015
-
-Version History:
-
-Version #1.0 
-- created the base game by adding the assets and initiate it
-
-Version #1.1
-- added game objects to the game and implement it
-
-Version #1.2
-- added the sound effects and tested the collision working
-
-Version #1.3
-- added game container to the game
-
-Version #1.4
-- added button class and contant file to the game
-
-Version #1.5
-- added Label class to the game
-
-Version #1.6
-- added scoreboard object which will displays the scoreboard of the game
--In this version, we check that score increases whenever player hit with the ring and
-lives decreases whenever it hits with the bees
-
-Version #1.7
-- created the play sate and encapsulated the game into play state 
--It makes program more clear and understandable to anybody. 
-
-Version #1.8
-- made changes in the check collision and made it working
-
-Version #1.9
-- added game over state to the game which will displays the game over message
-- added try again button to the game over state which will take the user to the menu state. 
-
-Version #1.10
-- added menu state to the game and the play button is displayed and the Instruction button.
-
-Version #1.11
-- added functionality of destroying the bees and rings whenever its collides with Nemo
-- In this version, bees are not destroyed when they collide with the player but then fix that error
-
-Version #1.12
-- added instruction state to the game which will displays the instructions of the game to the user
--Added back  button to the instruction state which take the user to the main screen.
-
-Version #1.13 
-- added and changed the sound effects of the game 
-
-Version #1.14
-- added gem object to the game which will increase the lives of the player
-
-Version #1.15
-- added player selection state to the game by which user can select their own player
-- remove play button from the main screen and replaced with the player select button
-
-Version #1.16
-- completed most of the internal documentation and remove non usable code from the game.
-- made changes in the instruction message
-
-Version #1.17
-- added text label to the menu state and made some changes in the sound effects
-
-Version #1.18
--Added functionality that when player has the score of 3000 then player will start receiving gems which will increase the lives of the game. 
--Added sound of the button to the game.
--Edit the instruction message. 
 
 */
 
@@ -90,10 +22,13 @@ Version #1.18
 /// <reference path="typings/stats/stats.d.ts" />
 
 
+/// <reference path="objects/electric.ts" />
+/// <reference path="objects/background2.ts" />
 /// <reference path="objects/button.ts" />
 /// <reference path="constants.ts" />
 
 /// <reference path="objects/background.ts" />
+/// <reference path="states/level2.ts" />
 /// <reference path="objects/barry.ts" />
 /// <reference path="objects/missles.ts" />
 /// <reference path="objects/coins.ts" />
@@ -133,7 +68,7 @@ var gameOver: states.GameOver;
 
 var menu: states.Menu;
 var instruction: states.Instruction;
-
+var level_2: states.Level2;
 var playGame: states.GamePlay;
 
 // asset manifest - array of asset objects
@@ -146,7 +81,9 @@ var manifest = [
     { id: "playButton", src: "assets/images/playButton.png" },
     { id: "instructionButton", src: "assets/images/instructionsButton.png" },
     { id: "okButton", src: "assets/images/okButton.png" },
-
+    { id: "background2", src: "assets/images/background2.png" },
+    { id: "electric", src: "assets/images/electric2.png" },
+    { id: "bee", src: "assets/images/bee.png" },
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
     { id: "lifeUpSound", src: "assets/audio/lifeUp.mp3" },
     { id: "buttonHover", src: "assets/audio/hover.mp3" },
@@ -233,7 +170,12 @@ function changeState(state: number): void {
             currentStateFunction = playGame;
             break;
 
-      
+       
+        case constants.GAME_OVER_STATE:
+            // instantiate game over screen
+            gameOver = new states.GameOver();
+            currentStateFunction = gameOver;
+            break;
 
         case constants.INSTRUCTION_STATE:
             // instantiate game over screen
@@ -241,13 +183,13 @@ function changeState(state: number): void {
             currentStateFunction = instruction;
             break;
 
-        case constants.GAME_OVER_STATE:
-            // instantiate game over screen
-            gameOver = new states.GameOver();
-            currentStateFunction = gameOver;
-            break;
+      
 
-       
+        case constants.LEVEL_2:
+            // instantiate game play screen
+            level_2 = new states.Level2();
+            currentStateFunction = level_2;
+            break;
 
       
 
