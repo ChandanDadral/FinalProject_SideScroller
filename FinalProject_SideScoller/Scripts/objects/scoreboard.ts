@@ -9,9 +9,7 @@ module objects {
     // SCOREBOARD CLASS ++++++++++++++++++++++++++++++++++++++++
     export class ScoreBoard {
         // PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++++++
-        public lives: number;
-        public score: number;
-
+        
         // PRIVATE INSTANCES VARIABLES +++++++++++++++++++++++++++++++++++++
         private _scoreLabel: createjs.Text;
         private _livesLabel: createjs.Text;
@@ -19,8 +17,7 @@ module objects {
 
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++
         constructor(game: createjs.Container) {
-            this.score = 0;
-            this.lives = 5;
+
             this._livesLabel = new createjs.Text("Lives: ", "40px Consolas", "#ffff00");
             game.addChild(this._livesLabel);
 
@@ -32,8 +29,11 @@ module objects {
 
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++
         public update(): void {
-            this._livesLabel.text = "Lives: " + this.lives;
-            this._scoreLabel.text = "Score: " + this.score;
+            
+            this._livesLabel.text = "Lives: " + lives;
+            this._scoreLabel.text = "Score: " + scores;
         }
+
+      
     }
 }    

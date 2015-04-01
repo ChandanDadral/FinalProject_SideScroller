@@ -62,6 +62,10 @@ var currentState: number;
 var currentStateFunction: any;
 var stateChanged: boolean = false;
 
+var scoreboard: objects.ScoreBoard;
+ var lives: number = 5;
+ var scores: number = 0;
+         
 
 // Game Objects
 var gameOver: states.GameOver;
