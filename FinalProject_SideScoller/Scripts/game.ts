@@ -1,4 +1,5 @@
-﻿/// <reference path="objects/bee.ts" />
+﻿/// <reference path="states/level3.ts" />
+/// <reference path="objects/bee.ts" />
 
 /**
 File: game.ts
@@ -35,6 +36,7 @@ Last Modified : March 19, 2015
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/scoreboard.ts" />
+/// <reference path="states/level3.ts" />
 /// <reference path="states/menu.ts" />
 /// <reference path="states/gameover.ts" />
 
@@ -73,6 +75,7 @@ var gameOver: states.GameOver;
 var menu: states.Menu;
 var instruction: states.Instruction;
 var level_2: states.Level2;
+var level_3: states.Level2;
 var playGame: states.GamePlay;
 
 // asset manifest - array of asset objects
@@ -193,6 +196,12 @@ function changeState(state: number): void {
             // instantiate game play screen
             level_2 = new states.Level2();
             currentStateFunction = level_2;
+            break;
+
+        case constants.LEVEL_3:
+            // instantiate game play screen
+            level_3 = new states.Level3();
+            currentStateFunction = level_3;
             break;
 
       

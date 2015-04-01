@@ -25,7 +25,7 @@ Last Modified : March 19, 2015
 
 module states {
     // PLAY STATE
-    export class Level2 {
+    export class Level3 {
         // PUBLIC VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
         public game: createjs.Container;
         public barry: objects.Barry;
@@ -97,11 +97,11 @@ module states {
                             this.coins._reset();
                             break;
                         case "electric":
-                           lives--;
+                            lives--;
                             this.electric._reset();
                             break;
                         case "bee":
-                           lives--;
+                            lives--;
                             this.bee[index]._reset();
                             break;
 
@@ -118,7 +118,7 @@ module states {
             this.barry.update();
             this.coins.update();
             this.electric.update();
-            
+
             if (lives > 0) {
                 for (index = constants.BEE_NUM; index > 0; index--) {
                     this.bee[index].update();
@@ -130,7 +130,7 @@ module states {
 
             }
 
-              scoreboard.update();
+            scoreboard.update();
             // check if player lost 
 
             if (lives < 1) {
@@ -151,9 +151,9 @@ module states {
                 stateChanged = true;
             }
             // check if player won
-            if (scores == 500) {
+            if (scores >= 5000) {
                 createjs.Sound.play("lifeUpSound");
-
+                createjs.Sound.stop();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
 
@@ -161,11 +161,14 @@ module states {
                     highScore = finalScore;
                 }
 
-                currentState = constants.LEVEL_3;
+                finalText = "YOU WON";
+                finalScore = scores;
+
+                currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
 
             }
         } // update method end
 
     }
-}    
+}     
