@@ -49,7 +49,7 @@ var stats: Stats = new Stats();
 var canvas;
 var stage: createjs.Stage;
 var assetLoader: createjs.LoadQueue;
-
+var textureAtlas: createjs.SpriteSheet;
 
 // Score Variables
 var finalScore: number = 0;
@@ -83,13 +83,13 @@ var manifest = [
     { id: "missles", src: "assets/images/missles.png" },
     { id: "coins", src: "assets/images/StarCoin.png" },
     { id: "background", src: "assets/images/background.png" },
-    { id: "barry", src: "assets/images/game_char.png" },
+  //  { id: "barry", src: "assets/images/game_char.png" },
     { id: "bullet", src: "assets/images/bull.png" },
     { id: "playButton", src: "assets/images/playButton.png" },
     { id: "instructionButton", src: "assets/images/instructionsButton.png" },
     { id: "okButton", src: "assets/images/okButton.png" },
     { id: "background2", src: "assets/images/background2.png" },
-    { id: "electric", src: "assets/images/electric2.png" },
+  //  { id: "electric", src: "assets/images/electric2.png" },
     { id: "bee", src: "assets/images/bee.png" },
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
     { id: "lifeUpSound", src: "assets/audio/lifeUp.mp3" },
@@ -106,6 +106,33 @@ var manifest = [
     { id: "bullet", src: "assets/images/bull.png" },
 ];
 
+var imageData =
+    {
+        "images": ["assets/images/atlas.png"],
+        "frames": [
+
+            [2, 147, 330, 25],
+            [334, 2, 120, 49],
+            [334, 53, 120, 49],
+            [334, 104, 120, 49],
+            [2, 2, 141, 143],
+            [145, 2, 141, 143]
+        ],
+        "animations": {
+
+            "electric": [1],
+            "barry": [4]
+          //  "electric": {
+          //      "frames": [1,2,3],
+          //      "speed": 0.2
+          //  },
+          //  "Barry": {        
+          //  "frames": [4, 5],
+          //  "speed": 0.2
+          //},
+        }
+    }
+
 /*
  * This function preloads all of the assets in the game.
  */
@@ -114,6 +141,8 @@ function preload() {
     assetLoader.installPlugin(createjs.Sound);
     assetLoader.on("complete", init, this); // event handler-triggers when loading done
     assetLoader.loadManifest(manifest); // loading my asset manifest
+
+    textureAtlas = new createjs.SpriteSheet(imageData);
 }
 
 /*

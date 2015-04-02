@@ -59,11 +59,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\atlas.png" />
     <Content Include="assets\images\background2.png" />
     <Content Include="assets\images\bee.png" />
     <Content Include="assets\images\electric.png" />
     <Content Include="assets\images\electric2.png" />
     <Content Include="packages.config" />
+    <Content Include="assets\images\atlas.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

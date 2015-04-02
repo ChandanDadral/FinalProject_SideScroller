@@ -1,0 +1,25 @@
+{
+"images": ["atlas.png"],
+"frames": [
+
+    [2, 147, 330, 25], 
+    [334, 2, 120, 49], 
+    [334, 53, 120, 49], 
+    [334, 104, 120, 49], 
+    [2, 2, 141, 143], 
+    [145, 2, 141, 143]
+],
+"animations": {
+    
+        "coins":[0], 
+        "electric2":[1], 
+        "electric3":[2], 
+        "electric4":[3], 
+        "game_char1":[4], 
+        "game_char2":[5]
+},
+"texturepacker": [
+        "SmartUpdateHash: $TexturePacker:SmartUpdate:b1b27123ce00efa94b8f224d86ab08cd:5cd80abd49f9da2aa2c96eb48e6035a3:719d3ca5e208998d0cfa5036d232ec40$",
+        "Created with TexturePacker (http://www.texturepacker.com) for EaselJS"
+]
+}

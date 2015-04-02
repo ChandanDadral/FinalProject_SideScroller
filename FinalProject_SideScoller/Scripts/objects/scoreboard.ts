@@ -19,10 +19,13 @@ module objects {
         constructor(game: createjs.Container) {
 
             this._livesLabel = new createjs.Text("Lives: ", "40px Consolas", "#ffff00");
+            this._livesLabel.x = 10;
+            this._livesLabel.y = 10;
             game.addChild(this._livesLabel);
 
             this._scoreLabel = new createjs.Text("Score: ", "40px Consolas", "#ffff00");
             this._scoreLabel.x = 400;
+            this._scoreLabel.y = 10;
             game.addChild(this._scoreLabel);
 
         }
