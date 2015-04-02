@@ -9,6 +9,7 @@
 /// <reference path="../objects/background2.ts" />
 /// <reference path="../objects/bee.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="../objects/bullet.ts" />
 /// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
 /// <reference path="../objects/electric.ts" />

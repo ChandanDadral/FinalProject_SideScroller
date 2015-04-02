@@ -9,6 +9,7 @@
 /// <reference path="../objects/background2.ts" />
 /// <reference path="../objects/bee.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="../objects/bullet.ts" />
 
 /// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
@@ -33,6 +34,7 @@ module states {
         public electric: objects.Electric;
         public bee: objects.Bee[] = [];
         public background2: objects.Background_2;
+       
         
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -69,6 +71,8 @@ module states {
 
         } // constructor end
 
+
+       
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Calculate the distance between two points
@@ -104,7 +108,6 @@ module states {
                            lives--;
                             this.bee[index]._reset();
                             break;
-
                     }
                 }
             } else {
@@ -118,7 +121,7 @@ module states {
             this.barry.update();
             this.coins.update();
             this.electric.update();
-            
+                       
             if (lives > 0) {
                 for (index = constants.BEE_NUM; index > 0; index--) {
                     this.bee[index].update();

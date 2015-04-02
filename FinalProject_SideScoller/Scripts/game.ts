@@ -66,8 +66,8 @@ var currentStateFunction: any;
 var stateChanged: boolean = false;
 
 var scoreboard: objects.ScoreBoard;
- var lives: number = 5;
- var scores: number = 0;
+var lives: number = 5;
+var scores: number = 0;
          
 
 // Game Objects
@@ -81,18 +81,18 @@ var playGame: states.GamePlay;
 
 // asset manifest - array of asset objects
 var manifest = [
-  //  { id: "missles", src: "assets/images/missles.png" },
+    //  { id: "missles", src: "assets/images/missles.png" },
     //{ id: "coins", src: "assets/images/StarCoin.png" },
     { id: "background", src: "assets/images/background.png" },
-  //  { id: "barry", src: "assets/images/game_char.png" },
-    { id: "bullet", src: "assets/images/bull.png" },
-   // { id: "playButton", src: "assets/images/playButton.png" },
-   // { id: "instructionButton", src: "assets/images/instructionsButton.png" },
-   // { id: "okButton", src: "assets/images/okButton.png" },
+    //  { id: "barry", src: "assets/images/game_char.png" },
+    //{ id: "bullet", src: "assets/images/bull.png" },
+    // { id: "playButton", src: "assets/images/playButton.png" },
+    // { id: "instructionButton", src: "assets/images/instructionsButton.png" },
+    // { id: "okButton", src: "assets/images/okButton.png" },
     { id: "background2", src: "assets/images/background2.png" },
     { id: "background3", src: "assets/images/background4.png" },
-  //  { id: "electric", src: "assets/images/electric2.png" },
-   // { id: "bee", src: "assets/images/bee.png" },
+    //  { id: "electric", src: "assets/images/electric2.png" },
+    // { id: "bee", src: "assets/images/bee.png" },
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
     { id: "lifeUpSound", src: "assets/audio/lifeUp.mp3" },
     { id: "buttonHover", src: "assets/audio/hover.mp3" },
@@ -103,87 +103,85 @@ var manifest = [
     
 
    
-   // { id: "tryAgainButton", src: "assets/images/playAgainButton.png" },
+    // { id: "tryAgainButton", src: "assets/images/playAgainButton.png" },
    
-    { id: "bullet", src: "assets/images/bull.png" },
+   // { id: "bullet", src: "assets/images/bull.png" },
 ];
 
 var imageData =
     {
         "images": ["assets/images/atlas.png"],
-"frames": [
+        "frames": [
 
-    [376, 53, 47, 58],
-    [442, 85, 47, 58],
-    [491, 85, 47, 58],
-    [508, 2, 47, 58],
-    [448, 187, 47, 58],
-    [497, 187, 47, 58],
-    [546, 177, 47, 58],
-    [540, 62, 47, 58],
-    [557, 2, 47, 58],
-    [589, 62, 47, 58],
-    [426, 2, 80, 81],
-    [376, 113, 31, 30],
-    [288, 115, 31, 30],
-    [321, 115, 31, 30],
-    [409, 113, 31, 30],
-    [520, 145, 31, 30],
-    [606, 2, 31, 30],
-    [553, 122, 31, 30],
-    [586, 122, 31, 30],
-    [595, 154, 31, 30],
-    [595, 186, 31, 30],
-    [2, 205, 120, 49],
-    [124, 205, 120, 49],
-    [288, 2, 120, 49],
-    [2, 2, 141, 143],
-    [145, 2, 141, 143],
-    [2, 147, 220, 56],
-    [426, 145, 92, 40],
-    [288, 53, 86, 60],
-    [224, 147, 200, 51],
-    [246, 200, 200, 51]
-],
-"animations": {
+            [704, 2, 80, 81],
+            [786, 2, 80, 81],
+            [332, 89, 20, 7],
+            [2, 89, 31, 30],
+            [35, 89, 31, 30],
+            [68, 89, 31, 30],
+            [101, 89, 31, 30],
+            [134, 89, 31, 30],
+            [167, 89, 31, 30],
+            [200, 89, 31, 30],
+            [233, 89, 31, 30],
+            [266, 89, 31, 30],
+            [299, 89, 31, 30],
+            [2, 2, 60, 85],
+            [64, 2, 60, 85],
+            [126, 2, 60, 85],
+            [188, 2, 60, 85],
+            [250, 2, 60, 85],
+            [312, 2, 60, 85],
+            [374, 2, 60, 85],
+            [436, 2, 60, 85],
+            [498, 2, 60, 85],
+            [560, 2, 60, 85],
+            [1374, 2, 120, 49],
+            [1374, 53, 120, 49],
+            [1240, 2, 120, 49],
+            [622, 2, 80, 82],
+            [868, 2, 80, 81],
+            [950, 64, 220, 56],
+            [704, 85, 92, 40],
+            [950, 2, 86, 60],
+            [1038, 2, 200, 51],
+            [1172, 55, 200, 51]
+        ],
+        "animations": {
 
-    "enemy": {
-        "frames": [0, 2, 3, 4, 5, 6, 7, 8, 9, 1],
-        "speed": .10
-    },
-    "1":[0],
-    "10":[1],
-    "2":[2],
-    "3":[3],
-    "4":[4],
-    "5":[5],
-    "6":[6],
-    "7":[7],
-    "8":[8],
-    "9":[9],
-    "bee": [10],
-    "coins": {
-        "frames": [11, 13, 14,15,16,17,18,19,20,12],
-        "speed": .30
-    },
-   
-    "electric": {
-        "frames": [21, 22,23],
-        "speed": .10
-    },
-   
-    "barry": {
-           "frames": [24, 25],
-           "speed": 0.10
-        },
-    
-    "instructionButton":[26],
-    "missles":[27],
-    "okButton":[28],
-    "tryAgainButton":[29],
-    "playButton":[30]
-}
-}
+
+            "bee": {
+                "frames": [0, 1],
+                "speed": .08
+            },
+            "bullet": [2],
+
+            "coins": {
+                "frames": [3, 5, 6, 7, 8, 9, 10, 11, 12, 4],
+                "speed": .30
+            },
+
+            "enemy": {
+                "frames": [13, 15, 16, 17, 18, 19, 20, 21, 22, 14],
+                "speed": .10
+            },
+
+            "electric": {
+                "frames": [23, 24, 25],
+                "speed": .10
+            },
+
+            "barry": {
+                "frames": [26, 27],
+                "speed": 0.10
+            },
+            "instructionButton": [28],
+            "missles": [29],
+            "okButton": [30],
+            "tryAgainButton": [31],
+            "playButton": [32]
+        }
+    }
 
 /*
  * This function preloads all of the assets in the game.
@@ -258,7 +256,7 @@ function changeState(state: number): void {
             currentStateFunction = playGame;
             break;
 
-       
+
         case constants.GAME_OVER_STATE:
             // instantiate game over screen
             gameOver = new states.GameOver();
@@ -271,7 +269,7 @@ function changeState(state: number): void {
             currentStateFunction = instruction;
             break;
 
-      
+
 
         case constants.LEVEL_2:
             // instantiate game play screen
@@ -285,8 +283,7 @@ function changeState(state: number): void {
             currentStateFunction = level_3;
             break;
 
-      
+
 
     }
 }
-
