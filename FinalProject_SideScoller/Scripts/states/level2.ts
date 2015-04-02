@@ -18,7 +18,7 @@
 
 /**
 File: gamePlay.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class displays the plays the game when the user selcts the player 2. 
 Last Modified : March 19, 2015
 */
