@@ -11,21 +11,27 @@ var objects;
         //Constructor/////////////////////////////////////////////////////////////////////////////
         function Bullet(x, y) {
             _super.call(this, "bullet");
+            this.soundString = "coinSound";
             this.x = x;
             this.y = y;
         } //constructor ends
         Bullet.prototype.update = function () {
             this.x += 5;
-            console.log("bullet moving");
+            //   console.log("bullet moving");
             if (this.x > 700) {
                 stage.removeChild(this);
             } //if ends
         };
+        Bullet.prototype._reset = function () {
+            // set the ring to start at a random x and y value
+            this.x = 640 + Math.floor(Math.random() * 640);
+            this.y = Math.floor(Math.random() * 480);
+        };
         Bullet.prototype.collide = function () {
-            stage.removeChild(this); //remove the bullet from the game
+            stage.removeChild(this);
         }; //method collide ends
         return Bullet;
-    })(createjs.Bitmap);
+    })(objects.GameObject);
     objects.Bullet = Bullet;
 })(objects || (objects = {})); //method update end  
 //# sourceMappingURL=bullet.js.map

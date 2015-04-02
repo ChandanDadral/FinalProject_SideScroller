@@ -83,6 +83,8 @@ module states {
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
+                lives = 5;
+                scores = 0;
                 currentState = constants.MENU_STATE;
                 stateChanged = true;
             }

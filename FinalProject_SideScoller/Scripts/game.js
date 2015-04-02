@@ -27,6 +27,7 @@ Last Modified : March 19, 2015
 /// <reference path="objects/barry.ts" />
 /// <reference path="objects/missles.ts" />
 /// <reference path="objects/coins.ts" />
+/// <reference path="objects/bullet.ts" />
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/scoreboard.ts" />
@@ -47,6 +48,8 @@ var highScore = 0;
 var score;
 var finalText;
 var index;
+var bullets = [];
+var bullet;
 // state variables
 var currentState;
 var currentStateFunction;

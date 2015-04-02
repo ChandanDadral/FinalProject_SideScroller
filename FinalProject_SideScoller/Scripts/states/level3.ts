@@ -40,6 +40,8 @@ module states {
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
+           
+
             // Instantiate Game Container
             this.game = new createjs.Container();
 

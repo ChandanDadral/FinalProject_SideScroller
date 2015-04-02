@@ -33,6 +33,7 @@ Last Modified : March 19, 2015
 /// <reference path="objects/barry.ts" />
 /// <reference path="objects/missles.ts" />
 /// <reference path="objects/coins.ts" />
+/// <reference path="objects/bullet.ts" />
 /// <reference path="objects/gameobject.ts" />
 /// <reference path="objects/label.ts" />
 /// <reference path="objects/scoreboard.ts" />
@@ -59,6 +60,9 @@ var score: objects.ScoreBoard;
 var finalText: string;
 
 var index: number;
+
+var bullets: objects.Bullet[] = [];
+var bullet: objects.Bullet;
 
 // state variables
 var currentState: number;
