@@ -10,6 +10,7 @@
 /// <reference path="../objects/bee.ts" />
 /// <reference path="../objects/enemy.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="../objects/background3.ts" />
 
 /// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
@@ -19,7 +20,7 @@
 
 /**
 File: gamePlay.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class displays the plays the game when the user selcts the player 2. 
 Last Modified : March 19, 2015
 */
@@ -34,7 +35,7 @@ module states {
         public enemy: objects.Enemy;
         public electric: objects.Electric;
         public bee: objects.Bee[] = [];
-        public background2: objects.Background_2;
+        public background3: objects.Background_3;
         
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -43,8 +44,8 @@ module states {
             this.game = new createjs.Container();
 
             // Add background to game
-            this.background2 = new objects.Background_2();
-            this.game.addChild(this.background2);
+            this.background3 = new objects.Background_3();
+            this.game.addChild(this.background3);
 
 
             // Add ring to game
@@ -123,7 +124,7 @@ module states {
 
         // UPDATE METHOD
         public update() {
-            this.background2.update();
+            this.background3.update();
             this.barry.update();
             this.coins.update();
             this.electric.update();

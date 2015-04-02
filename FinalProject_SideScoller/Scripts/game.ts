@@ -3,7 +3,7 @@
 
 /**
 File: game.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This game Nemo Fighter is created with the extensive use of javascript.
 At the begining of the game user will see the two buttons, one is for the instructions
 which tells the user how to play this game and about the controls and other button is
@@ -76,7 +76,7 @@ var gameOver: states.GameOver;
 var menu: states.Menu;
 var instruction: states.Instruction;
 var level_2: states.Level2;
-var level_3: states.Level2;
+var level_3: states.Level3;
 var playGame: states.GamePlay;
 
 // asset manifest - array of asset objects
@@ -90,6 +90,7 @@ var manifest = [
    // { id: "instructionButton", src: "assets/images/instructionsButton.png" },
    // { id: "okButton", src: "assets/images/okButton.png" },
     { id: "background2", src: "assets/images/background2.png" },
+    { id: "background3", src: "assets/images/background4.png" },
   //  { id: "electric", src: "assets/images/electric2.png" },
    // { id: "bee", src: "assets/images/bee.png" },
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
