@@ -59,11 +59,13 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\images\atlas.png" />
     <Content Include="assets\images\background2.png" />
     <Content Include="assets\images\bee.png" />
     <Content Include="assets\images\electric.png" />
     <Content Include="assets\images\electric2.png" />
     <Content Include="packages.config" />
+    <Content Include="assets\images\atlas.json" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -121,6 +123,7 @@
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />
     <TypeScriptCompile Include="Scripts\objects\electric.ts" />
+    <TypeScriptCompile Include="Scripts\objects\enemy.ts" />
     <TypeScriptCompile Include="Scripts\objects\gameobject.ts" />
     <TypeScriptCompile Include="Scripts\objects\Label.ts" />
     <TypeScriptCompile Include="Scripts\objects\missles.ts" />
@@ -129,6 +132,7 @@
     <TypeScriptCompile Include="Scripts\states\gamePlay.ts" />
     <TypeScriptCompile Include="Scripts\states\instruction.ts" />
     <TypeScriptCompile Include="Scripts\states\level2.ts" />
+    <TypeScriptCompile Include="Scripts\states\level3.ts" />
     <TypeScriptCompile Include="Scripts\states\menu.ts" />
     <TypeScriptCompile Include="Scripts\typings\createjs-lib\createjs-lib.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\easeljs\easeljs.d.ts" />

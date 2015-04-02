@@ -7,22 +7,18 @@ Last Modified : March 19, 2015
 
 module objects {
 
-    export class Barry extends createjs.Bitmap {
-        // PUBLIC VARIABLES +++++++++++++++++++++++++++++++++++++
-        public width: number;
-        public height: number;
+    export class Barry extends objects.GameObject{
+       
+        public name: string;
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         /**
          * This constructor creates creates nemo(player) at its position
          */
         constructor() {
-            super(assetLoader.getResult("barry"));
-            this.width = this.getBounds().width;
-            this.height = this.getBounds().height;
+            super("barry");
 
-            this.regX = this.width * 0.5;
-            this.regY = this.height * 0.5;
+            this.name = "barry";
 
             this.x = 80;
         }

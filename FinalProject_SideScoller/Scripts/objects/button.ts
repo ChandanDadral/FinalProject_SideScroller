@@ -1,16 +1,14 @@
 ﻿
 module objects {
-    export class Button extends createjs.Bitmap {
+    export class Button extends objects.GameObject{
 
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++
 
         constructor(stringPath: string, x: number, y: number) {
 
-            super(assetLoader.getResult(stringPath));
-
+            super(stringPath);
             this.regX = this.getBounds().width * 0.5;
-            this.regY = this.getBounds().height * 0.5;
-
+            this.regY= this.getBounds().height * 0.5;
             this.x = x;
             this.y = y;
 

@@ -6,7 +6,7 @@ Last Modified : March 16, 2015
 */
 module objects {
 
-    export class GameObject extends createjs.Bitmap {
+    export class GameObject extends createjs.Sprite {
         // PUBLIC VARIABLES
         public width: number;
         public height: number;
@@ -19,7 +19,7 @@ module objects {
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++
         constructor(assetString: string) {
-            super(assetLoader.getResult(assetString));
+            super(textureAtlas, assetString);
 
             this.width = this.getBounds().width;
             this.height = this.getBounds().height;

@@ -13,6 +13,9 @@ module constants {
     export var INSTRUCTION_STATE: number = 3;
    
     export var LEVEL_2: number = 4;
+    export var LEVEL_3: number = 5;
+
+    export var FONT_FAMILY: string = "RetroGirl";
 
     // Game Constants
     export var CLOUD_NUM: number = 4;

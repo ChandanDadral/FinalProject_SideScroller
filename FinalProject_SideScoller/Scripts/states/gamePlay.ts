@@ -6,13 +6,11 @@
 /// <reference path="../objects/label.ts" />
 /// <reference path="../objects/barry.ts" />
 /// <reference path="../objects/scoreboard.ts" />
-/// <reference path="../objects/background2.ts" />
-/// <reference path="../objects/bee.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="level2.ts" />
 
-/// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
-/// <reference path="../objects/electric.ts" />
+/// <reference path="../objects/barry.ts" />
 
 
 
@@ -25,15 +23,14 @@ Last Modified : March 19, 2015
 
 module states {
     // PLAY STATE
-    export class Level2 {
+    export class GamePlay {
         // PUBLIC VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
         public game: createjs.Container;
         public barry: objects.Barry;
         public coins: objects.Coins;
-        public electric: objects.Electric;
-        public bee: objects.Bee[] = [];
-        public background2: objects.Background_2;
-        
+        public missles: objects.Missles[] = [];
+        public background: objects.Background;
+       
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
@@ -41,8 +38,8 @@ module states {
             this.game = new createjs.Container();
 
             // Add background to game
-            this.background2 = new objects.Background_2();
-            this.game.addChild(this.background2);
+            this.background = new objects.Background();
+            this.game.addChild(this.background);
 
 
             // Add ring to game
@@ -54,13 +51,12 @@ module states {
             this.barry = new objects.Barry();
             this.game.addChild(this.barry);
 
-            this.electric = new objects.Electric();
-            this.game.addChild(this.electric);
+        
 
             // Add clouds to game
-            for (index = constants.BEE_NUM; index > 0; index--) {
-                this.bee[index] = new objects.Bee();
-                this.game.addChild(this.bee[index]);
+            for (index = constants.CLOUD_NUM; index > 0; index--) {
+                this.missles[index] = new objects.Missles();
+                this.game.addChild(this.missles[index]);
             }
 
             scoreboard = new objects.ScoreBoard(this.game);
@@ -96,15 +92,11 @@ module states {
                             scores += 100;
                             this.coins._reset();
                             break;
-                        case "electric":
-                           lives--;
-                            this.electric._reset();
+                        case "missles":
+                            lives--;
+                            this.missles[index]._reset();
                             break;
-                        case "bee":
-                           lives--;
-                            this.bee[index]._reset();
-                            break;
-
+                        
                     }
                 }
             } else {
@@ -114,23 +106,23 @@ module states {
 
         // UPDATE METHOD
         public update() {
-            this.background2.update();
+            this.background.update();
             this.barry.update();
             this.coins.update();
-            this.electric.update();
+           
             
+            // check collisions
             if (lives > 0) {
-                for (index = constants.BEE_NUM; index > 0; index--) {
-                    this.bee[index].update();
-                    this.checkCollision(this.bee[index]);
+                for (index = constants.CLOUD_NUM; index > 0; index--) {
+                    this.missles[index].update();
+                    this.checkCollision(this.missles[index]);
                 }
 
-                this.checkCollision(this.electric);
                 this.checkCollision(this.coins);
-
+              
             }
 
-              scoreboard.update();
+            scoreboard.update();
             // check if player lost 
 
             if (lives < 1) {
@@ -151,9 +143,9 @@ module states {
                 stateChanged = true;
             }
             // check if player won
-            if (scores == 500) {
+            if (scores == 200) {
                 createjs.Sound.play("lifeUpSound");
-
+               
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
 
@@ -161,7 +153,7 @@ module states {
                     highScore = finalScore;
                 }
 
-                currentState = constants.LEVEL_3;
+                currentState = constants.LEVEL_2;
                 stateChanged = true;
 
             }
