@@ -25,25 +25,25 @@ var states;
             this.background = new objects.Background();
             this.game.addChild(this.background);
             //Game Over Label
-            this.gameOverLabel = new objects.Label(320, 40, finalText);
-            this.gameOverLabel.font = "60px RetroGirl";
-            this.gameOverLabel.regX = this.gameOverLabel.getMeasuredWidth() * 0.5;
-            this.gameOverLabel.regY = this.gameOverLabel.getMeasuredLineHeight() * 0.5;
-            this.game.addChild(this.gameOverLabel);
+            var gameOverLabel = new objects.Label("GAME OVER", constants.SCREEN_CENTER_WIDTH, 80);
+            gameOverLabel.setSize(60);
+            gameOverLabel.regX = gameOverLabel.getBounds().width * 0.5;
+            gameOverLabel.regY = gameOverLabel.getBounds().height * 0.5;
+            this.game.addChild(gameOverLabel);
             // Game Win Label
-            this.gameWinLabel = new objects.Label(320, 40, finalText);
-            this.gameWinLabel.font = "60px RetroGirl";
-            this.gameWinLabel.regX = this.gameWinLabel.getMeasuredWidth() * 0.5;
-            this.gameWinLabel.regY = this.gameWinLabel.getMeasuredLineHeight() * 0.5;
-            this.game.addChild(this.gameWinLabel);
+            var gameWinLabel = new objects.Label(finalText, constants.SCREEN_CENTER_WIDTH, 150);
+            gameOverLabel.setSize(60);
+            gameWinLabel.regX = gameWinLabel.getBounds().width * 0.5;
+            gameWinLabel.regY = gameWinLabel.getBounds().height * 0.5;
+            this.game.addChild(gameWinLabel);
             //Final Score Label
-            this.finalScoreLabel = new objects.Label(320, 120, ("FINAL SCORE: " + finalScore));
-            this.game.addChild(this.finalScoreLabel);
+            var finalScoreLabel = new objects.Label("FINAL SCORE: " + finalScore, constants.SCREEN_CENTER_WIDTH, 220);
+            this.game.addChild(finalScoreLabel);
             //Final Score Label
-            this.highScoreLabel = new objects.Label(320, 220, ("HIGH SCORE: " + highScore));
-            this.game.addChild(this.highScoreLabel);
+            var highScoreLabel = new objects.Label("HIGH SCORE: " + highScore, constants.SCREEN_CENTER_WIDTH, 300);
+            this.game.addChild(highScoreLabel);
             //Try Again Button
-            this.tryAgainButton = new objects.Button("tryAgainButton", 320, 350);
+            this.tryAgainButton = new objects.Button("tryAgainButton", 320, 400);
             this.game.addChild(this.tryAgainButton);
             this.tryAgainButton.on("click", this.tryAgainClicked, this);
             // Add Game Container to Stage
@@ -60,6 +60,8 @@ var states;
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
+                lives = 5;
+                scores = 0;
                 currentState = constants.MENU_STATE;
                 stateChanged = true;
             }

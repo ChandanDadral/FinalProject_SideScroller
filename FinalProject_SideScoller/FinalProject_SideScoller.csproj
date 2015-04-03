@@ -59,6 +59,8 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\fonts\fontAtlas.png" />
+    <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.svg" />
     <Content Include="assets\images\atlas.png" />
     <Content Include="assets\images\background2.png" />
     <Content Include="assets\images\background4.png" />
@@ -67,6 +69,11 @@
     <Content Include="assets\images\electric2.png" />
     <Content Include="packages.config" />
     <Content Include="assets\images\atlas.json" />
+    <Content Include="assets\fonts\fontAtlas.json" />
+    <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.eot" />
+    <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.ttf" />
+    <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.woff" />
+    <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.woff2" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -122,6 +129,7 @@
     <TypeScriptCompile Include="Scripts\objects\background3.ts" />
     <TypeScriptCompile Include="Scripts\objects\barry.ts" />
     <TypeScriptCompile Include="Scripts\objects\bee.ts" />
+    <TypeScriptCompile Include="Scripts\objects\bullet.ts" />
     <TypeScriptCompile Include="Scripts\objects\button.ts" />
     <TypeScriptCompile Include="Scripts\objects\coins.ts" />
     <TypeScriptCompile Include="Scripts\objects\electric.ts" />
@@ -147,9 +155,7 @@
     <TypeScriptCompile Include="Scripts\typings\webrtc\MediaStream.d.ts" />
     <TypeScriptCompile Include="Scripts\typings\webrtc\RTCPeerConnection.d.ts" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="assets\fonts\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

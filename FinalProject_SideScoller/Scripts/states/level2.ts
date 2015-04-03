@@ -9,6 +9,7 @@
 /// <reference path="../objects/background2.ts" />
 /// <reference path="../objects/bee.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="../objects/bullet.ts" />
 
 /// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
@@ -33,6 +34,7 @@ module states {
         public electric: objects.Electric;
         public bee: objects.Bee[] = [];
         public background2: objects.Background_2;
+       
         
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -65,10 +67,20 @@ module states {
 
             scoreboard = new objects.ScoreBoard(this.game);
 
+            stage.addEventListener("click", this.bulletClick);
+
             stage.addChild(this.game);
 
         } // constructor end
 
+        public bulletClick() {
+            bullet = new objects.Bullet(80, stage.mouseY);
+            bullets.unshift(bullet);
+            stage.addChild(bullets[0]);
+
+        }
+
+       
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
 
         // Calculate the distance between two points
@@ -97,14 +109,16 @@ module states {
                             this.coins._reset();
                             break;
                         case "electric":
-                           lives--;
+                            lives--;
                             this.electric._reset();
                             break;
                         case "bee":
-                           lives--;
+                            lives--;
                             this.bee[index]._reset();
                             break;
-
+                        case "bullet":
+                            bullet.collide();
+                            break;
                     }
                 }
             } else {
@@ -118,7 +132,17 @@ module states {
             this.barry.update();
             this.coins.update();
             this.electric.update();
-            
+
+            if (bullet != undefined) {
+                for (var i = 0; i < bullets.length - 1; i++) {
+                    bullets[i].update();
+                    this.checkCollision(bullets[i]);
+                }
+
+            }
+
+           
+
             if (lives > 0) {
                 for (index = constants.BEE_NUM; index > 0; index--) {
                     this.bee[index].update();
@@ -130,7 +154,7 @@ module states {
 
             }
 
-              scoreboard.update();
+            scoreboard.update();
             // check if player lost 
 
             if (lives < 1) {
@@ -146,7 +170,7 @@ module states {
 
                 finalText = "YOU LOST";
                 finalScore = scores;
-
+                this.game.removeAllEventListeners();
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }
@@ -155,12 +179,13 @@ module states {
                 createjs.Sound.play("lifeUpSound");
 
                 this.game.removeAllChildren();
+                this.game.removeAllEventListeners();
                 stage.removeAllChildren();
 
                 if (finalScore > highScore) {
                     highScore = finalScore;
                 }
-
+                
                 currentState = constants.LEVEL_3;
                 stateChanged = true;
 

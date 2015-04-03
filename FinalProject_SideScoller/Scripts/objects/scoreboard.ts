@@ -11,19 +11,23 @@ module objects {
         // PUBLIC INSTANCE VARIABLES +++++++++++++++++++++++++++++++++++++++++++
         
         // PRIVATE INSTANCES VARIABLES +++++++++++++++++++++++++++++++++++++
-        private _scoreLabel: createjs.Text;
-        private _livesLabel: createjs.Text;
+        _livesLabel: createjs.BitmapText;
+       _scoreLabel: createjs.BitmapText;
         private _game: createjs.Container;
 
         // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++
         constructor(game: createjs.Container) {
 
-            this._livesLabel = new createjs.Text("Lives: ", "40px Consolas", "#ffff00");
+            this._livesLabel = new createjs.BitmapText("LIVES: ", fontAtlas);
+                       this._livesLabel.scaleX = 0.4;
+                        this._livesLabel.scaleY = 0.4;
             this._livesLabel.x = 10;
             this._livesLabel.y = 10;
             game.addChild(this._livesLabel);
 
-            this._scoreLabel = new createjs.Text("Score: ", "40px Consolas", "#ffff00");
+            this._scoreLabel = new createjs.BitmapText("SCORE: ", fontAtlas);
+                  this._scoreLabel.scaleX = 0.4;
+                        this._scoreLabel.scaleY = 0.4;
             this._scoreLabel.x = 400;
             this._scoreLabel.y = 10;
             game.addChild(this._scoreLabel);

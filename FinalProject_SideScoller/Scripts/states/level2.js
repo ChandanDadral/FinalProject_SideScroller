@@ -9,6 +9,7 @@
 /// <reference path="../objects/background2.ts" />
 /// <reference path="../objects/bee.ts" />
 /// <reference path="../constants.ts" />
+/// <reference path="../objects/bullet.ts" />
 /// <reference path="../game.ts" />
 /// <reference path="gameover.ts" />
 /// <reference path="../objects/electric.ts" />
@@ -43,8 +44,14 @@ var states;
                 this.game.addChild(this.bee[index]);
             }
             scoreboard = new objects.ScoreBoard(this.game);
+            stage.addEventListener("click", this.bulletClick);
             stage.addChild(this.game);
         } // constructor end
+        Level2.prototype.bulletClick = function () {
+            bullet = new objects.Bullet(80, stage.mouseY);
+            bullets.unshift(bullet);
+            stage.addChild(bullets[0]);
+        };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
         // Calculate the distance between two points
         Level2.prototype.distance = function (p1, p2) {
@@ -76,6 +83,9 @@ var states;
                             lives--;
                             this.bee[index]._reset();
                             break;
+                        case "bullet":
+                            bullet.collide();
+                            break;
                     }
                 }
             }
@@ -89,6 +99,12 @@ var states;
             this.barry.update();
             this.coins.update();
             this.electric.update();
+            if (bullet != undefined) {
+                for (var i = 0; i < bullets.length - 1; i++) {
+                    bullets[i].update();
+                    this.checkCollision(bullets[i]);
+                }
+            }
             if (lives > 0) {
                 for (index = constants.BEE_NUM; index > 0; index--) {
                     this.bee[index].update();
@@ -109,6 +125,7 @@ var states;
                 }
                 finalText = "YOU LOST";
                 finalScore = scores;
+                this.game.removeAllEventListeners();
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }
@@ -116,6 +133,7 @@ var states;
             if (scores == 500) {
                 createjs.Sound.play("lifeUpSound");
                 this.game.removeAllChildren();
+                this.game.removeAllEventListeners();
                 stage.removeAllChildren();
                 if (finalScore > highScore) {
                     highScore = finalScore;
