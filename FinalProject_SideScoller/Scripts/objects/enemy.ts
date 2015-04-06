@@ -13,7 +13,8 @@ module objects {
         constructor() {
             super("enemy");
             this.name = "enemy";
-            this._dx = 5;
+            this._dx = 5; 
+            this._dy = 395;
             this.soundString = "explosion";
             this._reset();
         }
@@ -22,7 +23,7 @@ module objects {
         public _reset() {
             // set the ring to start at a random x and y value
             this.x = 640 + Math.floor(Math.random() * 640);
-            this.y = Math.floor(Math.random() * 480);
+            this.y = 395;
         }
 
         private _checkBounds() {
@@ -39,7 +40,7 @@ module objects {
             this._checkBounds();
         }
 
-
+       
     }
 
-}    
+}  
