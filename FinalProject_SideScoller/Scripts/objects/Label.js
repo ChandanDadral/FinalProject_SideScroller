@@ -13,19 +13,27 @@ Last Modified : March 19, 2015
 */
 var objects;
 (function (objects) {
-    // LABEL Class ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+    // LABEL CLASS
     var Label = (function (_super) {
         __extends(Label, _super);
-        //CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++
-        function Label(x, y, labelText) {
-            _super.call(this, labelText, constants.LABEL_FONT, constants.LABEL_COLOUR);
-            this.regX = this.getMeasuredWidth() * 0.5;
-            this.regY = this.getMeasuredHeight() * 0.5;
+        // CONSTRUCTOR +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+        function Label(labelString, x, y) {
+            _super.call(this, labelString, fontAtlas);
+            this.setSize(40); // set default font size to 40 px;
+            this.width = this.getBounds().width;
+            this.height = this.getBounds().height;
+            this.regX = this.width * 0.5;
+            this.regY = this.height * 0.5;
             this.x = x;
             this.y = y;
         }
+        Label.prototype.setSize = function (newSize) {
+            var fontSize = newSize / 100;
+            this.scaleX = fontSize;
+            this.scaleY = fontSize;
+        };
         return Label;
-    })(createjs.Text);
+    })(createjs.BitmapText);
     objects.Label = Label;
 })(objects || (objects = {}));
 //# sourceMappingURL=label.js.map

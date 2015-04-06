@@ -27,18 +27,18 @@ var states;
             this.background = new objects.Background();
             this.game.addChild(this.background);
             //Game Over Label
-            this.mailPilotLabel = new objects.Label(320, 40, "JETPACK JOYRIDE");
-            this.mailPilotLabel.font = "60px RetroGirl";
-            this.mailPilotLabel.regX = this.mailPilotLabel.getMeasuredWidth() * 0.5;
-            this.mailPilotLabel.regY = this.mailPilotLabel.getMeasuredLineHeight() * 0.5;
-            this.game.addChild(this.mailPilotLabel);
-            this.label = new objects.Label(320, 40, "TEST NEW INVENTIONS");
-            this.label.font = "40px RetroGirl";
-            this.label.x = 320;
-            this.label.y = 150;
+            var mailPilotLabel = new objects.Label("JETPACK JOYRIDE", constants.SCREEN_CENTER_WIDTH, 100);
+            mailPilotLabel.setSize(60);
+            mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
+            mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
+            this.game.addChild(mailPilotLabel);
+            //this.label = new objects.Label(320, 40, "TEST NEW INVENTIONS");
+            //this.label.font = "40px RetroGirl";
+            //this.label.x = 320;
+            //this.label.y = 150;
             // this.label.regX = this.label.getMeasuredWidth() * 0.5;
             // this.label.regY = this.label.getMeasuredLineHeight() * 0.5;        
-            this.game.addChild(this.label);
+            // this.game.addChild(this.label);
             // instruction button
             this.instructionButton = new objects.Button("instructionButton", 450, 400);
             this.instructionButton.on("click", this.instructionClicked, this);

@@ -30,7 +30,7 @@ var states;
             this.instructionText.lineWidth = 600;
             this.game.addChild(this.instructionText);
             //back Button
-            this.backButton = new objects.Button("backButton", 300, 420);
+            this.backButton = new objects.Button("okButton", 300, 420);
             this.backButton.on("click", this.backClicked, this);
             this.game.addChild(this.backButton);
             stage.addChild(this.game);
