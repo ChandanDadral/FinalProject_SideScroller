@@ -29,7 +29,6 @@ var objects;
          */
         Barry.prototype.update = function () {
             this.y = stage.mouseY;
-            this.x = stage.mouseX;
         };
         return Barry;
     })(objects.GameObject);

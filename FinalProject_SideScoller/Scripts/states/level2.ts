@@ -126,6 +126,26 @@ module states {
             }
         } // checkCollision end
 
+
+        checkCollisionBullet(collider1: objects.Bullet, collider2: objects.Bee) {
+            var p1: createjs.Point = new createjs.Point();
+            var p2: createjs.Point = new createjs.Point();
+            p1.x = collider1.x;
+            p1.y = collider1.y;
+            p2.x = collider2.x;
+            p2.y = collider2.y;
+            // Check for Collision
+            if (this.distance(p2, p1) < ((collider1.height * 0.5) + (collider2.height * 0.5))) {
+                if (!collider1.isColliding) { // Collision has occurred
+                    createjs.Sound.play(collider1.soundString);
+                    collider1.isColliding = true;
+                    collider1._reset();
+                    collider2._reset();
+                }
+            } else {
+                collider1.isColliding = false;
+            }
+        } // checkCollision end
         // UPDATE METHOD
         public update() {
             this.background2.update();
@@ -134,13 +154,16 @@ module states {
             this.electric.update();
 
             if (bullet != undefined) {
-                for (var i = 0; i < bullets.length - 1; i++) {
+                for (i = 0; i < bullets.length - 1; i++) {
                     bullets[i].update();
-                    this.checkCollision(bullets[i]);
+
+                    for (index = constants.BEE_NUM; index > 0; index--) {
+                        this.checkCollisionBullet(bullets[i], this.bee[index]);
+                    }
+
                 }
 
             }
-
            
 
             if (lives > 0) {
