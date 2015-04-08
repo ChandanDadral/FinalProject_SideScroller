@@ -19,6 +19,7 @@ var objects;
             _super.call(this, "enemy");
             this.name = "enemy";
             this._dx = 5;
+            this._dy = 395;
             this.soundString = "explosion";
             this._reset();
         }
@@ -26,7 +27,7 @@ var objects;
         Enemy.prototype._reset = function () {
             // set the ring to start at a random x and y value
             this.x = 640 + Math.floor(Math.random() * 640);
-            this.y = Math.floor(Math.random() * 480);
+            this.y = 395;
         };
         Enemy.prototype._checkBounds = function () {
             if (this.x <= 0) {

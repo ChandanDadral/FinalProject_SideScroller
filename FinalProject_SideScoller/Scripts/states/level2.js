@@ -48,7 +48,7 @@ var states;
             stage.addChild(this.game);
         } // constructor end
         Level2.prototype.bulletClick = function () {
-            bullet = new objects.Bullet(80, stage.mouseY);
+            bullet = new objects.Bullet(stage.mouseX, stage.mouseY);
             bullets.unshift(bullet);
             stage.addChild(bullets[0]);
         };
@@ -140,14 +140,15 @@ var states;
             if (lives < 1) {
                 createjs.Sound.play("coinSound");
                 createjs.Sound.stop();
+                this.game.removeAllEventListeners();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
+                stage.removeAllEventListeners();
                 if (finalScore > highScore) {
                     highScore = finalScore;
                 }
                 finalText = "YOU LOST";
                 finalScore = scores;
-                this.game.removeAllEventListeners();
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }

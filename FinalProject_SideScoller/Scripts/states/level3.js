@@ -46,10 +46,16 @@ var states;
                 this.bee[index] = new objects.Bee();
                 this.game.addChild(this.bee[index]);
             }
+            stage.addEventListener("click", this.bulletClick);
             scoreboard = new objects.ScoreBoard(this.game);
             stage.addChild(this.game);
         } // constructor end
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
+        Level3.prototype.bulletClick = function () {
+            bullet = new objects.Bullet(stage.mouseX, stage.mouseY);
+            bullets.unshift(bullet);
+            stage.addChild(bullets[0]);
+        };
         // Calculate the distance between two points
         Level3.prototype.distance = function (p1, p2) {
             return Math.floor(Math.sqrt(Math.pow((p2.x - p1.x), 2) + Math.pow((p2.y - p1.y), 2)));
@@ -91,6 +97,46 @@ var states;
                 collider.isColliding = false;
             }
         }; // checkCollision end
+        Level3.prototype.checkCollisionBullet = function (collider1, collider2) {
+            var p1 = new createjs.Point();
+            var p2 = new createjs.Point();
+            p1.x = collider1.x;
+            p1.y = collider1.y;
+            p2.x = collider2.x;
+            p2.y = collider2.y;
+            // Check for Collision
+            if (this.distance(p2, p1) < ((collider1.height * 0.5) + (collider2.height * 0.5))) {
+                if (!collider1.isColliding) {
+                    createjs.Sound.play(collider1.soundString);
+                    collider1.isColliding = true;
+                    collider1._reset();
+                    collider2._reset();
+                }
+            }
+            else {
+                collider1.isColliding = false;
+            }
+        }; // checkCollision end
+        Level3.prototype.checkCollisionEnemy = function (collider1, collider2) {
+            var p1 = new createjs.Point();
+            var p2 = new createjs.Point();
+            p1.x = collider1.x;
+            p1.y = collider1.y;
+            p2.x = collider2.x;
+            p2.y = collider2.y;
+            // Check for Collision
+            if (this.distance(p2, p1) < ((collider1.height * 0.5) + (collider2.height * 0.5))) {
+                if (!collider1.isColliding) {
+                    createjs.Sound.play(collider1.soundString);
+                    collider1.isColliding = true;
+                    collider1._reset();
+                    collider2._reset();
+                }
+            }
+            else {
+                collider1.isColliding = false;
+            }
+        }; // checkCollision end
         // UPDATE METHOD
         Level3.prototype.update = function () {
             this.background3.update();
@@ -98,6 +144,15 @@ var states;
             this.coins.update();
             this.electric.update();
             this.enemy.update();
+            if (bullet != undefined) {
+                for (i = 0; i < bullets.length - 1; i++) {
+                    bullets[i].update();
+                    for (index = constants.BEE_NUM; index > 0; index--) {
+                        this.checkCollisionBullet(bullets[i], this.bee[index]);
+                    }
+                    this.checkCollisionEnemy(bullets[i], this.enemy);
+                }
+            }
             if (lives > 0) {
                 for (index = constants.BEE_NUM; index > 0; index--) {
                     this.bee[index].update();
@@ -112,8 +167,10 @@ var states;
             if (lives < 1) {
                 createjs.Sound.play("coinSound");
                 createjs.Sound.stop();
+                this.game.removeAllEventListeners();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
+                stage.removeAllEventListeners();
                 if (finalScore > highScore) {
                     highScore = finalScore;
                 }
@@ -127,7 +184,9 @@ var states;
                 createjs.Sound.play("lifeUpSound");
                 createjs.Sound.stop();
                 this.game.removeAllChildren();
+                this.game.removeAllEventListeners();
                 stage.removeAllChildren();
+                stage.removeAllEventListeners();
                 if (finalScore > highScore) {
                     highScore = finalScore;
                 }

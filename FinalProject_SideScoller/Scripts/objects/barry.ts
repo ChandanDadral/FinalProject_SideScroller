@@ -21,6 +21,7 @@ module objects {
             this.name = "barry";
 
             this.x = 80;
+            
         }
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
@@ -29,7 +30,7 @@ module objects {
          */
         public update() {
             this.y = stage.mouseY;
-
+            this.x = stage.mouseX;
         }
     }
 

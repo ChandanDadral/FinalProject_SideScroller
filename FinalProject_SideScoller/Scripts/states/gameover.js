@@ -59,6 +59,7 @@ var states;
             if (this.tryAgain) {
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();
+                this.game.removeAllEventListeners();
                 stage.removeChild(this.game);
                 lives = 5;
                 scores = 0;

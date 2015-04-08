@@ -74,7 +74,7 @@ module states {
         } // constructor end
 
         public bulletClick() {
-            bullet = new objects.Bullet(80, stage.mouseY);
+            bullet = new objects.Bullet(stage.mouseX, stage.mouseY);
             bullets.unshift(bullet);
             stage.addChild(bullets[0]);
 
@@ -147,6 +147,8 @@ module states {
             }
         } // checkCollision end
         // UPDATE METHOD
+
+
         public update() {
             this.background2.update();
             this.barry.update();
@@ -183,9 +185,10 @@ module states {
             if (lives < 1) {
                 createjs.Sound.play("coinSound");
                 createjs.Sound.stop();
-
+                this.game.removeAllEventListeners();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
+                stage.removeAllEventListeners();
 
                 if (finalScore > highScore) {
                     highScore = finalScore;
@@ -193,7 +196,7 @@ module states {
 
                 finalText = "YOU LOST";
                 finalScore = scores;
-                this.game.removeAllEventListeners();
+                
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }
@@ -204,6 +207,8 @@ module states {
                 this.game.removeAllChildren();
                 this.game.removeAllEventListeners();
                 stage.removeAllChildren();
+                
+                
 
                 if (finalScore > highScore) {
                     highScore = finalScore;

@@ -31,9 +31,10 @@ module states {
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         constructor() {
+            
             // Instantiate Game Container
             this.game = new createjs.Container();
-
+            
             //Ocean object
             this.background = new objects.Background();
             this.game.addChild(this.background);
@@ -82,6 +83,7 @@ module states {
             if (this.tryAgain) {
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();
+                this.game.removeAllEventListeners();
                 stage.removeChild(this.game);
                 lives = 5;
                 scores = 0;
