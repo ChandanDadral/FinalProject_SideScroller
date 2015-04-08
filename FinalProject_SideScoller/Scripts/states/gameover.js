@@ -48,6 +48,8 @@ var states;
             this.tryAgainButton.on("click", this.tryAgainClicked, this);
             // Add Game Container to Stage
             stage.addChild(this.game);
+            createjs.Sound.play("gameOverS");
+            stage.cursor = "default";
         } // Constructor
         // PUBLIC METHODS +++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         GameOver.prototype.tryAgainClicked = function () {

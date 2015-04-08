@@ -24,6 +24,7 @@ module states {
         // Game Objects         
         public game: createjs.Container;
         public background: objects.Background;
+         public gameLogo: createjs.Bitmap;
        
         public playButton: objects.Button;
        
@@ -41,11 +42,12 @@ module states {
             //Ocean object
             this.background = new objects.Background();
             this.game.addChild(this.background);
+            this.gameLogo = new createjs.Bitmap("assets/images/Logo.png");
 
            
 
             //Game Over Label
-            var mailPilotLabel: objects.Label = new objects.Label("JETPACK JOYRIDE", constants.SCREEN_CENTER_WIDTH, 100);
+            var mailPilotLabel: objects.Label = new objects.Label("JETPACK JOYRIDE", constants.SCREEN_CENTER_WIDTH, 50);
             mailPilotLabel.setSize(60);
                        mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
                         mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
@@ -69,10 +71,15 @@ module states {
             this.playButton.on("click", this.playButtonClicked, this);
           
 
-            createjs.Sound.play("mainMenuSound", { loop: -1 });
+            createjs.Sound.play("back", { loop: -1 });
+
+            this.gameLogo.x = 110;
+            this.gameLogo.y = 80;
 
             // Add Game Container to Stage
             stage.addChild(this.game);
+            stage.cursor = "default";
+
         } // Constructor
         
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -93,10 +100,15 @@ module states {
             stage.removeChild(this.game);
             currentState = constants.PLAY_STATE;
             stateChanged = true;
+         //   createjs.Sound.removeAllSounds;
+            createjs.Sound.stop();
+            
         }
+
 
         // UPDATE METHOD
         public update() {
+            this.game.addChild(this.gameLogo);
             this.background.update();
            
             stage.update(); // Refreshes our stage

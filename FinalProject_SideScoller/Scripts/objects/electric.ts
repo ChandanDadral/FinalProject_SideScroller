@@ -14,7 +14,7 @@ module objects {
             super("electric");
             this.name = "electric";
             this._dx = 5;
-            this.soundString = "explosionSound";
+            this.soundString = "electricS";
             this._reset();
         }
 

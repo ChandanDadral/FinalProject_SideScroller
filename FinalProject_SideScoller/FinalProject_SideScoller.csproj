@@ -59,6 +59,14 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="assets\audio\beeS.mp3" />
+    <Content Include="assets\audio\electric_sound.mp3" />
+    <Content Include="assets\audio\enemyS.wav" />
+    <Content Include="assets\audio\gameOverS.mp3" />
+    <Content Include="assets\audio\Level 22.m4a" />
+    <Content Include="assets\audio\Level 3.m4a" />
+    <Content Include="assets\audio\Level2.mp3" />
+    <Content Include="assets\audio\level3_sound.mp3" />
     <Content Include="assets\fonts\fontAtlas.png" />
     <Content Include="assets\fonts\MyGirlIsRetroDEMO-webfont.svg" />
     <Content Include="assets\images\atlas.png" />

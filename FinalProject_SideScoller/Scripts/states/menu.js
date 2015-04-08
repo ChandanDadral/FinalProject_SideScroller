@@ -26,8 +26,9 @@ var states;
             //Ocean object
             this.background = new objects.Background();
             this.game.addChild(this.background);
+            this.gameLogo = new createjs.Bitmap("assets/images/Logo.png");
             //Game Over Label
-            var mailPilotLabel = new objects.Label("JETPACK JOYRIDE", constants.SCREEN_CENTER_WIDTH, 100);
+            var mailPilotLabel = new objects.Label("JETPACK JOYRIDE", constants.SCREEN_CENTER_WIDTH, 50);
             mailPilotLabel.setSize(60);
             mailPilotLabel.regX = mailPilotLabel.getBounds().width * 0.5;
             mailPilotLabel.regY = mailPilotLabel.getBounds().height * 0.5;
@@ -46,9 +47,12 @@ var states;
             this.playButton = new objects.Button("playButton", 130, 400);
             this.game.addChild(this.playButton);
             this.playButton.on("click", this.playButtonClicked, this);
-            createjs.Sound.play("mainMenuSound", { loop: -1 });
+            createjs.Sound.play("back", { loop: -1 });
+            this.gameLogo.x = 110;
+            this.gameLogo.y = 80;
             // Add Game Container to Stage
             stage.addChild(this.game);
+            stage.cursor = "default";
         } // Constructor
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         /**
@@ -67,9 +71,12 @@ var states;
             stage.removeChild(this.game);
             currentState = constants.PLAY_STATE;
             stateChanged = true;
+            //   createjs.Sound.removeAllSounds;
+            createjs.Sound.stop();
         };
         // UPDATE METHOD
         Menu.prototype.update = function () {
+            this.game.addChild(this.gameLogo);
             this.background.update();
             stage.update(); // Refreshes our stage
         }; // Update Method

@@ -18,7 +18,7 @@ var objects;
         function Bee() {
             _super.call(this, "bee");
             this.name = "bee";
-            this.soundString = "explosionSound";
+            this.soundString = "beeS";
             this._reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++

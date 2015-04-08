@@ -89,25 +89,29 @@ var manifest = [
     //  { id: "missles", src: "assets/images/missles.png" },
     //{ id: "coins", src: "assets/images/StarCoin.png" },
     { id: "background", src: "assets/images/background.png" },
-    //  { id: "barry", src: "assets/images/game_char.png" },
-    //{ id: "bullet", src: "assets/images/bull.png" },
-    // { id: "playButton", src: "assets/images/playButton.png" },
-    // { id: "instructionButton", src: "assets/images/instructionsButton.png" },
-    // { id: "okButton", src: "assets/images/okButton.png" },
+   
     { id: "background2", src: "assets/images/background2.png" },
     { id: "background3", src: "assets/images/background4.png" },
     //  { id: "electric", src: "assets/images/electric2.png" },
     // { id: "bee", src: "assets/images/bee.png" },
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
+    { id: "back", src: "assets/audio/back.mp3" },
     { id: "lifeUpSound", src: "assets/audio/lifeUp.mp3" },
     { id: "buttonHover", src: "assets/audio/hover.mp3" },
     { id: "explosionSound", src: "assets/audio/Explosion.mp3" },
     { id: "coinSound", src: "assets/audio/coin_collect.mp3" },
     { id: "backSound", src: "assets/audio/backsound.mp3" },
     { id: "buttonClick", src: "assets/audio/buttonClick.mp3" },
-    
-
-   
+    { id: "level2", src: "assets/audio/level3_sound.mp3" },
+    { id: "level3", src: "assets/audio/level2.mp3" },
+    { id: "electricS", src: "assets/audio/electric_sound.mp3" },
+    { id: "level2Up", src: "assets/audio/Level 22.m4a" },
+    { id: "level3Up", src: "assets/audio/Level 3.m4a" },
+    { id: "enemyS", src: "assets/audio/enemyS.wav" },
+    { id: "bulletS", src: "assets/audio/Laser_Shoot.wav" },
+    { id: "beeS", src: "assets/audio/beeS.mp3" },
+    { id: "gameOverS", src: "assets/audio/gameOverS.mp3" },
+    { id: "Logo", src: "assets/images/Logo.png" }
     // { id: "tryAgainButton", src: "assets/images/playAgainButton.png" },
    
    // { id: "bullet", src: "assets/images/bull.png" },

@@ -11,7 +11,7 @@ var objects;
         //Constructor/////////////////////////////////////////////////////////////////////////////
         function Bullet(x, y) {
             _super.call(this, "bullet");
-            this.soundString = "coinSound";
+            this.soundString = "bulletS";
             this.x = x;
             this.y = y;
         } //constructor ends

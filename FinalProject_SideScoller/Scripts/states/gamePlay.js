@@ -37,9 +37,11 @@ var states;
             for (index = constants.CLOUD_NUM; index > 0; index--) {
                 this.missles[index] = new objects.Missles();
                 this.game.addChild(this.missles[index]);
+                createjs.Sound.play("backSound", { loop: -1 });
             }
             scoreboard = new objects.ScoreBoard(this.game);
             stage.addChild(this.game);
+            stage.cursor = "none";
         } // constructor end
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
         // Calculate the distance between two points
@@ -91,7 +93,7 @@ var states;
             scoreboard.update();
             // check if player lost 
             if (lives < 1) {
-                createjs.Sound.play("coinSound");
+                createjs.Sound.play("gameOverS");
                 createjs.Sound.stop();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
@@ -106,6 +108,8 @@ var states;
             // check if player won
             if (scores == 200) {
                 createjs.Sound.play("lifeUpSound");
+                createjs.Sound.play("level3Up");
+                createjs.Sound.stop();
                 this.game.removeAllChildren();
                 stage.removeAllChildren();
                 if (finalScore > highScore) {

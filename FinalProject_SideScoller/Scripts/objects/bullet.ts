@@ -4,7 +4,7 @@
        
         constructor(x: number, y: number) {
             super("bullet");
-            this.soundString = "coinSound";
+            this.soundString = "bulletS";
             this.x = x;
             this.y = y;
         } //constructor ends

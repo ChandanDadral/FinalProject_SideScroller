@@ -13,7 +13,7 @@ module objects {
         constructor() {
             super("bee");
             this.name = "bee";
-            this.soundString = "explosionSound";
+            this.soundString = "beeS";
 
             this._reset();
 

@@ -70,6 +70,7 @@ module states {
             stage.addEventListener("click", this.bulletClick);
 
             stage.addChild(this.game);
+            createjs.Sound.play("level2", { loop: -1 });
 
         } // constructor end
 
@@ -77,6 +78,7 @@ module states {
             bullet = new objects.Bullet(stage.mouseX, stage.mouseY);
             bullets.unshift(bullet);
             stage.addChild(bullets[0]);
+            createjs.Sound.play("bulletS");
 
         }
 
@@ -183,7 +185,7 @@ module states {
             // check if player lost 
 
             if (lives < 1) {
-                createjs.Sound.play("coinSound");
+                createjs.Sound.play("gameOverS");
                 createjs.Sound.stop();
                 this.game.removeAllEventListeners();
                 this.game.removeAllChildren();
@@ -202,8 +204,9 @@ module states {
             }
             // check if player won
             if (scores == 500) {
+                createjs.Sound.play("level3Up");
                 createjs.Sound.play("lifeUpSound");
-
+                createjs.Sound.stop();
                 this.game.removeAllChildren();
                 this.game.removeAllEventListeners();
                 stage.removeAllChildren();

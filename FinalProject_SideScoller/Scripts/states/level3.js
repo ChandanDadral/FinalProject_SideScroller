@@ -49,12 +49,14 @@ var states;
             stage.addEventListener("click", this.bulletClick);
             scoreboard = new objects.ScoreBoard(this.game);
             stage.addChild(this.game);
+            createjs.Sound.play("level3", { loop: -1 });
         } // constructor end
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
         Level3.prototype.bulletClick = function () {
             bullet = new objects.Bullet(stage.mouseX, stage.mouseY);
             bullets.unshift(bullet);
             stage.addChild(bullets[0]);
+            createjs.Sound.play("bulletS");
         };
         // Calculate the distance between two points
         Level3.prototype.distance = function (p1, p2) {
@@ -165,7 +167,7 @@ var states;
             scoreboard.update();
             // check if player lost 
             if (lives < 1) {
-                createjs.Sound.play("coinSound");
+                createjs.Sound.play("gameOverS");
                 createjs.Sound.stop();
                 this.game.removeAllEventListeners();
                 this.game.removeAllChildren();

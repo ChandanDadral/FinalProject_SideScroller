@@ -21,9 +21,11 @@ var objects;
         // EVENT HANDLERS
         Button.prototype._buttonOut = function (event) {
             event.currentTarget.alpha = 1.0;
+            createjs.Sound.play("buttonClick");
         };
         Button.prototype._buttonOver = function (event) {
             event.currentTarget.alpha = 0.5;
+            createjs.Sound.play("buttonHover");
         };
         return Button;
     })(objects.GameObject);

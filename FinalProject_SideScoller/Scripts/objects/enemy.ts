@@ -15,7 +15,7 @@ module objects {
             this.name = "enemy";
             this._dx = 5;
             this._dy = 395;
-            this.soundString = "explosion";
+            this.soundString = "enemyS";
             this._reset();
         }
 

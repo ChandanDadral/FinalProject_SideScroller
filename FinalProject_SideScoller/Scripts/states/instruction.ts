@@ -35,11 +35,10 @@ module states {
             this.game.addChild(this.background);
             
             // instruction message
-            var instructionsMessage: string = "Welcome to Nemo Fighter game,Nemo's was attacked by enemies, "
-                + "you need to save nemo from the bees and save his life. "
+            var instructionsMessage: string = "Welcome to JetPack Joyride game,Barry Labortary was attacked, "
+                + "you need to save barry from the missiles, electric and enemies and save his life. "
                 + "In order to win this game,you need to collect 5000 points!"
-                + "you get the 100 points for each ring and your lives increases by 1 by getting each gem. "
-                + "Once you reached at the score of 3000, gems will be added to the game. "
+                + "Each coin gives 100 points. "
                 + "Steer with the mouse, Lets See how many points you can Get!";
 
             this.instructionText = new createjs.Text(instructionsMessage, "25px Consolas", constants.LABEL_COLOUR);

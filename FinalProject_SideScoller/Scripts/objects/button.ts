@@ -20,10 +20,12 @@ module objects {
 
         private _buttonOut(event: createjs.MouseEvent): void {
             event.currentTarget.alpha = 1.0;
+            createjs.Sound.play("buttonClick");
         }
 
         private _buttonOver(event: createjs.MouseEvent): void {
             event.currentTarget.alpha = 0.5;
+            createjs.Sound.play("buttonHover");
         }
 
     }
