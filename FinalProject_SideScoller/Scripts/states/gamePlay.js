@@ -106,7 +106,7 @@ var states;
                 stateChanged = true;
             }
             // check if player won
-            if (scores == 200) {
+            if (scores == 700) {
                 createjs.Sound.play("lifeUpSound");
                 createjs.Sound.play("level3Up");
                 createjs.Sound.stop();

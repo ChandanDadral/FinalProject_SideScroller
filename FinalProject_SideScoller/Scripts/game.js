@@ -265,7 +265,7 @@ function init() {
 function setupStats() {
     stats.setMode(0);
     stats.domElement.style.position = 'absolute';
-    stats.domElement.style.left = '650px';
+    stats.domElement.style.left = '1005px';
     stats.domElement.style.top = '440px';
     document.body.appendChild(stats.domElement);
 }

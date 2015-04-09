@@ -203,7 +203,7 @@ module states {
                 stateChanged = true;
             }
             // check if player won
-            if (scores == 500) {
+            if (scores == 1000) {
                 createjs.Sound.play("level3Up");
                 createjs.Sound.play("lifeUpSound");
                 createjs.Sound.stop();

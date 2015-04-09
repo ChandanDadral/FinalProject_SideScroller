@@ -75,6 +75,7 @@
     <Content Include="assets\images\bee.png" />
     <Content Include="assets\images\electric.png" />
     <Content Include="assets\images\electric2.png" />
+    <Content Include="assets\images\instructionPic.png" />
     <Content Include="packages.config" />
     <Content Include="assets\images\atlas.json" />
     <Content Include="assets\fonts\fontAtlas.json" />
