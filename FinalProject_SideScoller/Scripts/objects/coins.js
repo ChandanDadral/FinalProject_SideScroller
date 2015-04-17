@@ -1,7 +1,7 @@
 /**
-File: Ring.ts
-Author: Karan Sharma
-Description:  This sets the position of the ring objects
+File: Coins.ts
+Author: Karan Sharma and Chandan Dadral
+Description:  This sets the position of the Coins objects
 Last Modified : March 19, 2015
 */
 var __extends = this.__extends || function (d, b) {
@@ -24,7 +24,7 @@ var objects;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
         Coins.prototype._reset = function () {
-            // set the ring to start at a random x and y value
+            // set the coins to start at a random x and y value
             this.x = 640 + Math.floor(Math.random() * 640);
             this.y = Math.floor(Math.random() * 480);
         };
@@ -34,7 +34,7 @@ var objects;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-        // This method updates the rings and call the check bounds method
+        // This method updates the coins and call the check bounds method
         Coins.prototype.update = function () {
             this.x -= this._dx;
             this._checkBounds();

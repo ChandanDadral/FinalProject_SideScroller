@@ -2,7 +2,7 @@
 
 /**
 File: Label.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class contains all the details to initialize the Label objects
 Last Modified : March 19, 2015
 */
@@ -29,6 +29,7 @@ module objects {
             this.y = y;
         }
 
+        //sets the size for the label 
         setSize(newSize: number) {
             var fontSize: number = newSize / 100;
             this.scaleX = fontSize;

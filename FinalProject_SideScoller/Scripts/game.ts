@@ -4,13 +4,13 @@
 /**
 File: game.ts
 Author: Karan Sharma and Chandan Dadral
-Description: This game Nemo Fighter is created with the extensive use of javascript.
+Description: This game JetPack Joyride is created with the extensive use of javascript.
 At the begining of the game user will see the two buttons, one is for the instructions
 which tells the user how to play this game and about the controls and other button is
 to selct the player of the game. Once user select his player then game will start and
-it displays the score board at the top of the screen and also displays the message 
+it displays the score board at the top of the screen and also displays the message
 When player wins or lost.
-Last Modified : March 19, 2015
+Last Modified : April 15, 2015
 
 */
 
@@ -59,10 +59,10 @@ var finalScore: number = 0;
 var highScore = 0;
 var score: objects.ScoreBoard;
 var finalText: string;
-
 var index: number;
 var i: number;
 
+//Bullets Variable
 var bullets: objects.Bullet[] = [];
 var bullet: objects.Bullet;
 
@@ -86,24 +86,21 @@ var playGame: states.GamePlay;
 
 // asset manifest - array of asset objects
 var manifest = [
-    //  { id: "missles", src: "assets/images/missles.png" },
-    //{ id: "coins", src: "assets/images/StarCoin.png" },
     { id: "background", src: "assets/images/background.png" },
    
     { id: "background2", src: "assets/images/background2.png" },
     { id: "background3", src: "assets/images/background4.png" },
-    //  { id: "electric", src: "assets/images/electric2.png" },
-    // { id: "bee", src: "assets/images/bee.png" },
+   
     { id: "mainMenuSound", src: "assets/audio/mainMenu.mp3" },
     { id: "back", src: "assets/audio/back.mp3" },
-    { id: "lifeUpSound", src: "assets/audio/lifeUp.mp3" },
+    { id: "lifeUpAudio", src: "assets/audio/lifeUp.mp3" },
     { id: "buttonHover", src: "assets/audio/hover.mp3" },
     { id: "explosionSound", src: "assets/audio/Explosion.mp3" },
     { id: "coinSound", src: "assets/audio/coin_collect.mp3" },
     { id: "backSound", src: "assets/audio/backsound.mp3" },
     { id: "buttonClick", src: "assets/audio/buttonClick.mp3" },
     { id: "level2", src: "assets/audio/level3_sound.mp3" },
-    { id: "level3", src: "assets/audio/level2.mp3" },
+    { id: "level3", src: "assets/audio/Level2.mp3" },
     { id: "electricS", src: "assets/audio/electric_sound.mp3" },
     { id: "level2Up", src: "assets/audio/Level 22.m4a" },
     { id: "level3Up", src: "assets/audio/Level 3.m4a" },
@@ -111,12 +108,11 @@ var manifest = [
     { id: "bulletS", src: "assets/audio/Laser_Shoot.wav" },
     { id: "beeS", src: "assets/audio/beeS.mp3" },
     { id: "gameOverS", src: "assets/audio/gameOverS.mp3" },
-    { id: "Logo", src: "assets/images/Logo.png" }
-    // { id: "tryAgainButton", src: "assets/images/playAgainButton.png" },
+    { id: "Logo", src: "assets/images/Logo.png" },
+    { id: "info", src: "assets/images/info.png" }
    
-   // { id: "bullet", src: "assets/images/bull.png" },
 ];
-
+//Sprite Sheet for Game Bitmaps
 var imageData =
     {
         "images": ["assets/images/atlas.png"],
@@ -172,7 +168,7 @@ var imageData =
 
             "enemy": {
                 "frames": [13, 15, 16, 17, 18, 19, 20, 21, 22, 14],
-                "speed": .10
+                "speed": .13
             },
 
             "electric": {
@@ -191,7 +187,7 @@ var imageData =
             "playButton": [32]
         }
     }
-
+//Sprite Sheet for Fonts
 var fontData = {
     "images": ["assets/fonts/fontAtlas.png"],
     "frames": [
@@ -359,21 +355,19 @@ function changeState(state: number): void {
             break;
 
         case constants.INSTRUCTION_STATE:
-            // instantiate game over screen
+            // instantiate Instruction screen
             instruction = new states.Instruction();
             currentStateFunction = instruction;
             break;
 
-
-
         case constants.LEVEL_2:
-            // instantiate game play screen
+            // instantiate Level2 screen
             level_2 = new states.Level2();
             currentStateFunction = level_2;
             break;
 
         case constants.LEVEL_3:
-            // instantiate game play screen
+            // instantiate Level3 screen
             level_3 = new states.Level3();
             currentStateFunction = level_3;
             break;

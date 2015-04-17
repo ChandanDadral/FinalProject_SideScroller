@@ -4,6 +4,12 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+/**
+File: bullets.ts
+Author: Karan Sharma Chandan Dadral
+Description:  This class set the position of the bullets objects
+Last Modified : March 16, 2015
+*/
 var objects;
 (function (objects) {
     var Bullet = (function (_super) {

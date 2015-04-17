@@ -4,6 +4,12 @@ var __extends = this.__extends || function (d, b) {
     __.prototype = b.prototype;
     d.prototype = new __();
 };
+/**
+File: Button.ts
+Author: Karan Sharma Chandan Dadral
+Description:  This class has the Functionalty of the Buttons
+Last Modified : March 16, 2015
+*/
 var objects;
 (function (objects) {
     var Button = (function (_super) {
@@ -19,10 +25,12 @@ var objects;
             this.addEventListener("mouseout", this._buttonOut);
         }
         // EVENT HANDLERS
+        //if mouse outs from the Button
         Button.prototype._buttonOut = function (event) {
             event.currentTarget.alpha = 1.0;
             createjs.Sound.play("buttonClick");
         };
+        //if mouse is on the Button
         Button.prototype._buttonOver = function (event) {
             event.currentTarget.alpha = 0.5;
             createjs.Sound.play("buttonHover");

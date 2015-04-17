@@ -1,9 +1,9 @@
 ﻿
 
 /**
-File: background.ts
-Author: Karan Sharma
-Description: This class the position of the background of the game
+File: background2.ts
+Author: Karan Sharma and Chandan Dadral
+Description: This class the position of the background for level 2 of the game
 Last Modified : March 16, 2015
 */
 
@@ -38,7 +38,7 @@ module objects {
         private _checkBounds() {
             if (this.x < -892) {
                 this._reset();
-                //1405
+                
             }
         }
 

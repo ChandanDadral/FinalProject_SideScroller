@@ -8,9 +8,9 @@
 /// <reference path="../objects/scoreboard.ts" />
 /**
 File: gameOver.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class displays the game over state when player lost or won.
-Last Modified : March 19, 2015
+Last Modified : April 05, 2015
 */
 var states;
 (function (states) {
@@ -56,8 +56,10 @@ var states;
             this.tryAgain = true;
         };
         // UPDATE METHOD
+        //this method updates the objects on the game Container
         GameOver.prototype.update = function () {
             this.background.update();
+            //if Try again button clicked then user can play again
             if (this.tryAgain) {
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();

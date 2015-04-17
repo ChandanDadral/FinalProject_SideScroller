@@ -6,8 +6,8 @@ var __extends = this.__extends || function (d, b) {
 };
 /**
 File: GameObject.ts
-Author: Karan Sharma
-Description:  This class is the base class for the other class
+Author: Karan Sharma and Chandan Dadral
+Description:  This class is the base class for the other class it has the functanility for the other game objects
 Last Modified : March 16, 2015
 */
 var objects;

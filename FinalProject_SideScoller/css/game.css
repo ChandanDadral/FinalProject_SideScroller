@@ -7,3 +7,11 @@
     display: block;
    
 }
+
+body {
+    
+    background: url('../assets/images/back.jpg') no-repeat fixed;
+    background-size: 1385px 670px;
+    background-repeat: no-repeat;
+
+}

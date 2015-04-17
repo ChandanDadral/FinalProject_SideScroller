@@ -1,4 +1,10 @@
-﻿module objects {
+﻿/**
+File: bullets.ts
+Author: Karan Sharma Chandan Dadral
+Description:  This class set the position of the bullets objects 
+Last Modified : March 16, 2015
+*/
+module objects {
     export class Bullet extends objects.GameObject {
         //Constructor/////////////////////////////////////////////////////////////////////////////
        

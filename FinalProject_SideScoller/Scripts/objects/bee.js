@@ -1,6 +1,6 @@
 /**
 File: Bee.ts
-Author: Karan Sharma
+Author: Karan Sharma Chandan Dadral
 Description:  This class set the position of the bee objects
 Last Modified : March 16, 2015
 */
@@ -23,11 +23,12 @@ var objects;
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
         Bee.prototype._reset = function () {
-            this._dx = Math.floor(Math.random() * 5) + 5;
+            this._dx = Math.floor(Math.random() * 5) + 6;
             this._dy = Math.floor(Math.random() * 4) - 2;
             this.x = 640 + Math.floor(Math.random() * 640);
             this.y = Math.floor(Math.random() * 480);
         };
+        //It checks the Bounds and resets the bee postions
         Bee.prototype._checkBounds = function () {
             if (this.x <= 0) {
                 this._reset();

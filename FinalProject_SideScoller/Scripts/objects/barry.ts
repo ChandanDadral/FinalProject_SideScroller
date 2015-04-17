@@ -1,6 +1,6 @@
 ﻿/**
-File: nemo.ts
-Author: Karan Sharma
+File: Barry.ts
+Author: Karan Sharma chandan Dadral
 Description: This file class the position of the Nemo 
 Last Modified : March 19, 2015
 */

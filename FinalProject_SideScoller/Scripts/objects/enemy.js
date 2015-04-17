@@ -1,8 +1,8 @@
 /**
-File: Ring.ts
-Author: Karan Sharma
-Description:  This sets the position of the ring objects
-Last Modified : March 19, 2015
+File: enemy.ts
+Author: Karan Sharma and Chandan Dadral
+Description:  This sets the position of the enemy objects
+Last Modified : April 01, 2015
 */
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -18,14 +18,15 @@ var objects;
         function Enemy() {
             _super.call(this, "enemy");
             this.name = "enemy";
-            this._dx = 5;
+            //sets the x and y postion for the enemy so that they can come from the Track 
+            this._dx = 7;
             this._dy = 395;
             this.soundString = "enemyS";
             this._reset();
         }
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
         Enemy.prototype._reset = function () {
-            // set the ring to start at a random x and y value
+            // set the enemy to start at a random x and y value
             this.x = 640 + Math.floor(Math.random() * 640);
             this.y = 395;
         };
@@ -35,7 +36,7 @@ var objects;
             }
         };
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-        // This method updates the rings and call the check bounds method
+        // This method updates the enemy and call the check bounds method
         Enemy.prototype.update = function () {
             this.x -= this._dx;
             this._checkBounds();

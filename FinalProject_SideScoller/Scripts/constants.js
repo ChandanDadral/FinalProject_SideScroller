@@ -1,6 +1,6 @@
 /**
 File: Constants.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class has all constant variables that are used in the game
 Last Modified : March 19, 2015
 */

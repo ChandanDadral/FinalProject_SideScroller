@@ -1,7 +1,7 @@
 ﻿/**
-File: Bee.ts
-Author: Karan Sharma
-Description:  This class set the position of the bee objects
+File: Missles.ts
+Author: Karan Sharma and Chandan Dadral
+Description:  This class set the position of the Missles objects
 Last Modified : March 16, 2015
 */
 
@@ -21,7 +21,7 @@ module objects {
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
         public _reset() {
-            this._dx = Math.floor(Math.random() * 5) + 5;
+            this._dx = Math.floor(Math.random() * 5) + 7;
             this._dy = Math.floor(Math.random() * 4) - 2;
 
             this.x = 640 + Math.floor(Math.random() * 640);

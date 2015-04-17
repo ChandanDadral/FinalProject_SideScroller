@@ -7,7 +7,7 @@ var __extends = this.__extends || function (d, b) {
 };
 /**
 File: Label.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class contains all the details to initialize the Label objects
 Last Modified : March 19, 2015
 */
@@ -27,6 +27,7 @@ var objects;
             this.x = x;
             this.y = y;
         }
+        //sets the size for the label 
         Label.prototype.setSize = function (newSize) {
             var fontSize = newSize / 100;
             this.scaleX = fontSize;

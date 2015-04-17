@@ -1,9 +1,9 @@
 ﻿
 
 /**
-File: background.ts
-Author: Karan Sharma
-Description: This class the position of the background of the game
+File: background3.ts
+Author: Karan Sharma and Chandan Dadral
+Description: This class the position of the background for Level 3 of the game
 Last Modified : March 16, 2015
 */
 

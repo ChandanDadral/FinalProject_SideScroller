@@ -1,6 +1,6 @@
 ﻿/**
 File: Constants.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class has all constant variables that are used in the game 
 Last Modified : March 19, 2015
 */
@@ -11,7 +11,6 @@ module constants {
     export var PLAY_STATE: number = 1;
     export var GAME_OVER_STATE: number = 2;
     export var INSTRUCTION_STATE: number = 3;
-   
     export var LEVEL_2: number = 4;
     export var LEVEL_3: number = 5;
 

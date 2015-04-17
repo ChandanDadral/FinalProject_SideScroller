@@ -2,9 +2,9 @@
 
 /**
 File: background.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class the position of the background of the game
-Last Modified : March 16, 2015
+Last Modified : March 28, 2015
 */
 
 module objects {
@@ -35,10 +35,13 @@ module objects {
             this.y = 0;
         }
 
+        /**
+        This Methods resets the background if it reaches at certain point
+        */
         private _checkBounds() {
             if (this.x < -892) {
                 this._reset();
-                //1405
+               
             }
         }
 

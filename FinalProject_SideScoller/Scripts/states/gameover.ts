@@ -11,9 +11,9 @@
 
 /**
 File: gameOver.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class displays the game over state when player lost or won. 
-Last Modified : March 19, 2015
+Last Modified : April 05, 2015
 */
 
 module states {
@@ -22,10 +22,6 @@ module states {
         // Game Objects 
         public game: createjs.Container;
         public background: objects.Background;
-      //  public gameOverLabel: objects.Label;
-        //public gameWinLabel: objects.Label;
-       // public finalScoreLabel: objects.Label;
-        //public highScoreLabel: objects.Label;
         public tryAgainButton: objects.Button;
         public tryAgain: boolean = false;
 
@@ -78,10 +74,12 @@ module states {
         }
 
         // UPDATE METHOD
+        //this method updates the objects on the game Container
         public update() {
 
             this.background.update();
 
+            //if Try again button clicked then user can play again
             if (this.tryAgain) {
                 createjs.Sound.play("buttonClick");
                 this.game.removeAllChildren();

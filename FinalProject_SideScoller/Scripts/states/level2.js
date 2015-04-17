@@ -16,8 +16,8 @@
 /**
 File: gamePlay.ts
 Author: Karan Sharma and Chandan Dadral
-Description: This class displays the plays the game when the user selcts the player 2.
-Last Modified : March 19, 2015
+Description: This class displays the Level 2
+Last Modified : April 11, 2015
 */
 var states;
 (function (states) {
@@ -31,18 +31,33 @@ var states;
             // Add background to game
             this.background2 = new objects.Background_2();
             this.game.addChild(this.background2);
-            // Add ring to game
+            // Add coins to game
             this.coins = new objects.Coins();
             this.game.addChild(this.coins);
-            // Add nemo to game
+            // Add barry to game
             this.barry = new objects.Barry();
             this.game.addChild(this.barry);
+            //added electric to game
             this.electric = new objects.Electric();
             this.game.addChild(this.electric);
             for (index = constants.BEE_NUM; index > 0; index--) {
                 this.bee[index] = new objects.Bee();
                 this.game.addChild(this.bee[index]);
             }
+            //Level Label on the game shows the Level 1 in the Beginign
+            var levelLabel = new objects.Label("LEVEL 2", constants.SCREEN_CENTER_WIDTH, 240);
+            levelLabel.setSize(60);
+            levelLabel.regX = levelLabel.getBounds().width * 0.5;
+            levelLabel.regY = levelLabel.getBounds().height * 0.5;
+            this.game.addChild(levelLabel);
+            //Tweening the Lable with the Effects by changing the positing on the game container
+            createjs.Tween.get(levelLabel, { loop: false }).to({ x: 400 }, 1000, createjs.Ease.getPowInOut(2)).to({ alpha: 0, y: 75 }, 500, createjs.Ease.getPowInOut(2)).to({ alpha: 0, y: 125 }, 100);
+            this.info = new createjs.Bitmap("assets/images/info.png");
+            //Sets the Position for Game logo
+            this.info.x = 248;
+            this.info.y = 5;
+            //Added tweening to Inforamtion Label
+            createjs.Tween.get(this.info, { loop: false }).to({ x: 200 }, 1000, createjs.Ease.getPowInOut(2)).to({ alpha: 0, y: -75 }, 2000, createjs.Ease.getPowInOut(5));
             scoreboard = new objects.ScoreBoard(this.game);
             stage.addEventListener("click", this.bulletClick);
             stage.addChild(this.game);
@@ -76,6 +91,28 @@ var states;
                         case "coins":
                             scores += 100;
                             this.coins._reset();
+                            switch (scores) {
+                                case 1000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 2000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 3000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 4000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 5000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                            }
                             break;
                         case "electric":
                             lives--;
@@ -95,6 +132,7 @@ var states;
                 collider.isColliding = false;
             }
         }; // checkCollision end
+        //Checks collins for Bullets
         Level2.prototype.checkCollisionBullet = function (collider1, collider2) {
             var p1 = new createjs.Point();
             var p2 = new createjs.Point();
@@ -116,11 +154,14 @@ var states;
             }
         }; // checkCollision end
         // UPDATE METHOD
+        //it is updating the Objects on the Game
         Level2.prototype.update = function () {
             this.background2.update();
             this.barry.update();
             this.coins.update();
             this.electric.update();
+            this.game.addChild(this.info);
+            //
             if (bullet != undefined) {
                 for (i = 0; i < bullets.length - 1; i++) {
                     bullets[i].update();
@@ -139,6 +180,7 @@ var states;
             }
             scoreboard.update();
             // check if player lost 
+            //if lives is less that 1 then changes the states 
             if (lives < 1) {
                 createjs.Sound.play("gameOverS");
                 createjs.Sound.stop();
@@ -151,11 +193,12 @@ var states;
                 }
                 finalText = "YOU LOST";
                 finalScore = scores;
+                //changes game State
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }
-            // check if player won
-            if (scores == 1000) {
+            // check and chages the LEvel to 3
+            if (scores == 1600) {
                 createjs.Sound.play("level3Up");
                 createjs.Sound.play("lifeUpSound");
                 createjs.Sound.stop();

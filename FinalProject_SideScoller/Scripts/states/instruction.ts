@@ -10,10 +10,10 @@
 
 
 /**
-File: Select.ts
-Author: Karan Sharma
+File: Instruction.ts
+Author: Karan Sharma and Chandan Dadral
 Description: This class displays the insruction of the game. 
-Last Modified : March 19, 2015
+Last Modified : April 01, 2015
 */
 
 module states {
@@ -35,25 +35,11 @@ module states {
             this.background = new objects.Background();
             this.game.addChild(this.background);
             
+            //Shows the Image of the Instruction which is Created
             this.instructionPic = new createjs.Bitmap("assets/images/instructionPic.png");
             this.game.addChild(this.instructionPic);
             this.instructionPic.x = 0;
             this.instructionPic.y = 0;
-
-            // instruction message
-            //var instructionsMessage: string = "Welcome to JetPack Joyride game,Barry Labortary was attacked, "
-            //    + "you need to save barry from the missiles, electric and enemies and save his life. "
-            //    + "In order to win this game,you need to collect 5000 points!"
-            //    + "Each coin gives 100 points. "
-            //    + "Steer with the mouse, Lets See how many points you can Get!";
-
-            //this.instructionText = new createjs.Text(instructionsMessage, "25px Consolas", constants.LABEL_COLOUR);
-            //// setting thre position of the instruction message
-            //this.instructionText.y = 15;
-            //this.instructionText.x = 25;
-            //this.instructionText.lineHeight = 35;
-            //this.instructionText.lineWidth = 600;
-            //this.game.addChild(this.instructionText);
  
             //back Button
             this.backButton = new objects.Button("okButton", 300, 420);
@@ -63,6 +49,7 @@ module states {
             stage.addChild(this.game);
         }
 
+        //If back button clicked
         public backClicked() {
             this.play = true;
         }
@@ -77,6 +64,7 @@ module states {
                 this.game.removeAllChildren();
                 stage.removeChild(this.game);
                 createjs.Sound.stop();
+                //changes the State back to Menu State
                 currentState = constants.MENU_STATE;
                 stateChanged = true;
             }

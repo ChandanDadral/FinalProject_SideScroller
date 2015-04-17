@@ -19,10 +19,10 @@
 
 
 /**
-File: gamePlay.ts
+File: Level3.ts
 Author: Karan Sharma and Chandan Dadral
 Description: This class displays the plays the game when the user selcts the player 2. 
-Last Modified : March 19, 2015
+Last Modified : APril 11, 2015
 */
 
 module states {
@@ -36,6 +36,7 @@ module states {
         public electric: objects.Electric;
         public bee: objects.Bee[] = [];
         public background3: objects.Background_3;
+        public info: createjs.Bitmap;
         
 
         // CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
@@ -50,26 +51,51 @@ module states {
             this.game.addChild(this.background3);
 
 
-            // Add ring to game
+            // Add Coins to game
             this.coins = new objects.Coins();
             this.game.addChild(this.coins);
 
 
-            // Add nemo to game
+            // Add Barry to game
             this.barry = new objects.Barry();
             this.game.addChild(this.barry);
 
+            //Add Electric to the game
             this.electric = new objects.Electric();
             this.game.addChild(this.electric);
 
+            //Add ememies to the game 
             this.enemy = new objects.Enemy();
             this.game.addChild(this.enemy);
 
-            // Add clouds to game
+            // Add Bee to game
             for (index = constants.BEE_NUM; index > 0; index--) {
                 this.bee[index] = new objects.Bee();
                 this.game.addChild(this.bee[index]);
             }
+            //Added the Label for Level 3 to game
+            var levelLabel: objects.Label = new objects.Label("LEVEL 3", constants.SCREEN_CENTER_WIDTH, 240);
+            levelLabel.setSize(60);
+            levelLabel.regX = levelLabel.getBounds().width * 0.5;
+            levelLabel.regY = levelLabel.getBounds().height * 0.5;
+            this.game.addChild(levelLabel);
+            //Tweened the labels
+            createjs.Tween.get(levelLabel, { loop: false })
+                .to({ x: 400 }, 1000, createjs.Ease.getPowInOut(2))
+                .to({ alpha: 0, y: 75 }, 500, createjs.Ease.getPowInOut(2))
+                .to({ alpha: 0, y: 125 }, 100)
+          
+
+            this.info = new createjs.Bitmap("assets/images/info.png");
+
+            //Sets the Position for Game logo
+            this.info.x = 248;
+            this.info.y = 5;
+
+            //Added tweening to Inforamtion Label
+            createjs.Tween.get(this.info, { loop: false })
+                .to({ x: 200 }, 1000, createjs.Ease.getPowInOut(2))
+                .to({ alpha: 0, y: -75 }, 2000, createjs.Ease.getPowInOut(5))
 
             stage.addEventListener("click", this.bulletClick);
 
@@ -114,6 +140,30 @@ module states {
                         case "coins":
                             scores += 100;
                             this.coins._reset();
+                            switch (scores) {
+                                //when player has score in thousands then player gets  a life up and different sound is played.
+               
+                                case 1000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 2000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 3000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 4000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                                case 5000:
+                                    createjs.Sound.play('lifeUpAudio');
+                                    lives += 1;
+                                    break;
+                            }
                             break;
                         case "electric":
                             lives--;
@@ -155,6 +205,7 @@ module states {
             }
         } // checkCollision end
 
+        //Checking Collision between Bullets and Enemies
         checkCollisionEnemy(collider1: objects.Bullet, collider2: objects.Enemy) {
             var p1: createjs.Point = new createjs.Point();
             var p2: createjs.Point = new createjs.Point();
@@ -182,6 +233,7 @@ module states {
             this.coins.update();
             this.electric.update();
             this.enemy.update();
+            this.game.addChild(this.info);
 
             if (bullet != undefined) {
                 for (i = 0; i < bullets.length - 1; i++) {
@@ -224,7 +276,7 @@ module states {
 
                 finalText = "YOU LOST";
                 finalScore = scores;
-
+                //Changes the Game State
                 currentState = constants.GAME_OVER_STATE;
                 stateChanged = true;
             }

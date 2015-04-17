@@ -1,7 +1,7 @@
 ﻿/**
-File: Ring.ts
-Author: Karan Sharma
-Description:  This sets the position of the ring objects
+File: electric.ts
+Author: Karan Sharma and Chandan Dadral
+Description:  This sets the position of the electric in Level 2 and Level 3 objects
 Last Modified : March 19, 2015
 */
 
@@ -20,7 +20,7 @@ module objects {
 
         // PRIVATE METHODS ++++++++++++++++++++++++++++++++++++++++
         public _reset() {
-            // set the ring to start at a random x and y value
+            // set the enemy to start at a random x and y value
             this.x = 640 + Math.floor(Math.random() * 640);
             this.y = Math.floor(Math.random() * 480);
         }
@@ -33,7 +33,7 @@ module objects {
 
 
         // PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++
-        // This method updates the rings and call the check bounds method
+        // This method updates the electric and call the check bounds method
         public update() {
             this.x -= this._dx;
             this._checkBounds();

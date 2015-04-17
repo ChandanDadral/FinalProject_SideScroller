@@ -1,8 +1,8 @@
 /**
 File: background.ts
-Author: Karan Sharma
+Author: Karan Sharma and Chandan Dadral
 Description: This class the position of the background of the game
-Last Modified : March 16, 2015
+Last Modified : March 28, 2015
 */
 var __extends = this.__extends || function (d, b) {
     for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
@@ -29,6 +29,9 @@ var objects;
             this.x = 0;
             this.y = 0;
         };
+        /**
+        This Methods resets the background if it reaches at certain point
+        */
         Background.prototype._checkBounds = function () {
             if (this.x < -892) {
                 this._reset();

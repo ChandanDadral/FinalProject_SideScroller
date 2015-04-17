@@ -1,4 +1,9 @@
-﻿
+﻿/**
+File: Button.ts
+Author: Karan Sharma Chandan Dadral
+Description:  This class has the Functionalty of the Buttons
+Last Modified : March 16, 2015
+*/
 module objects {
     export class Button extends objects.GameObject{
 
@@ -17,12 +22,13 @@ module objects {
         }
 
         // EVENT HANDLERS
-
+        //if mouse outs from the Button
         private _buttonOut(event: createjs.MouseEvent): void {
             event.currentTarget.alpha = 1.0;
             createjs.Sound.play("buttonClick");
         }
 
+        //if mouse is on the Button
         private _buttonOver(event: createjs.MouseEvent): void {
             event.currentTarget.alpha = 0.5;
             createjs.Sound.play("buttonHover");
